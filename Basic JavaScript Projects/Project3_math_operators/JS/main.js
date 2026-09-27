@@ -57,3 +57,5 @@ window.alert(Math.random() * 42);
 function math_Method() {
     document.getElementById("Math").innerHTML = Math.sqrt(64);
 }
+
+

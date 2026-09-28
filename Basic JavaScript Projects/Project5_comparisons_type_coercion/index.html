@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparisons Type Coaercion</title>
+    <script src="JS/main.js"></script>
+</head>
+
+<body>
+
+    <p id="Test" onclick="my_Function()">Click here!</p>
+
+    <!-- Element target by document.getElementById("Test") -->
+    <p id="Test"></p>
+
+    <h4>JavaScript Equality Test</h4>
+
+    <!--// Display the results Double equals sign to return “true" and "false" on the webpage-->
+    <p>True result: <span id="TrueTest"></span></p>
+    <p>False result: <span id="FalseTest"></span></p>
+
+    <!--Triple Equal sign === to return “true” and “false”-->
+    <p>1. Same type & value: <span id="test1"></span></p> <!--Return true by ensuring to match the data type and value.-->
+    <p>2. Different type & value: <span id="test2"></span></p> <!--Return false by writing a different data type and different value.-->
+    <p>3. Different type, same value: <span id="test3"></span></p> <!--Return false by writing a different data type but the same value for both.-->
+    <p>4. Same type, different value: <span id="test4"></span></p> <!--Return false by writing the same data type but a different value for both-->
+
+    <!--AND operator to display true and false-->
+    <h2>AND Operator (&&)</h2>
+  <p>AND True: <span id="and-true"></span></p>
+  <p>AND False: <span id="and-false"></span></p>
+
+  <!--OR operator to display true and false-->
+  <h2>OR Operator (||)</h2>
+  <p>OR True: <span id="or-true"></span></p>
+  <p>OR False: <span id="or-false"></span></p>
+
+  <h2>NOT Operator (!)</h2>
+  <p id="Not" onclick="not_Function()">Click Here!</p>
+
+</body>
+
+</html>

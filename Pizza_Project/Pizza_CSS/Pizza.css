@@ -1,0 +1,535 @@
+/* Color Palette: Green (#2E7D32), Yellow (#FFC107), White (#FFFFFF) */
+
+:root {
+    --primary-color: #2E7D32;    /* Forest Green */
+    --primary-hover: #1B5E20;
+    --accent-color: #FFC107;     /* Bright Yellow */
+    --accent-hover: #FFA000;
+    --bg-white: #FFFFFF;
+    --bg-light: #F4F6F4;
+    --text-dark: #212121;
+    --text-muted: #616161;
+    --border-color: #E0E0E0;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-dark);
+    background-color: var(--bg-white);
+    line-height: 1.6;
+}
+
+/* Typography & General Styling */
+h1, h2, h3, h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.section-container {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.bg-light {
+    background-color: var(--bg-light);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Header & Navigation */
+header {
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-white);
+    border-bottom: 3px solid var(--accent-color);
+    box-shadow: var(--shadow);
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-name {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    line-height: 1;
+}
+
+.brand-sub {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent-hover);
+    letter-spacing: 2px;
+}
+
+nav a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Buttons */
+.btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+}
+
+.btn-secondary {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+}
+
+.btn-lg {
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.cart-icon-btn {
+    background: var(--bg-light);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 0.8rem;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    font-size: 1.2rem;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    font-size: 0.75rem;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), 
+                url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--bg-white);
+}
+
+.hero-overlay h1 {
+    font-size: 3rem;
+    color: var(--accent-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-overlay p {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Cards & Layout Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background-color: var(--bg-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-body p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Custom Pizza Builder */
+.builder-wrapper {
+    margin-top: 3rem;
+    background-color: var(--bg-white);
+    border: 2px solid var(--accent-color);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.builder-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.menu.left, .menu.right {
+    flex: 1;
+    min-width: 250px;
+    background-color: var(--bg-light);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.small-text {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.builder-actions {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+#btnOrder {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    font-size: 1.1rem;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+#btnOrder:hover {
+    background-color: var(--primary-hover);
+}
+
+.receipt-box {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background-color: #FFFDE7; /* Light yellow tint */
+    border: 1px dashed var(--accent-hover);
+    border-radius: 6px;
+}
+
+/* About Us & Careers Layout */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    align-items: center;
+}
+
+.rounded-img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.career-card {
+    padding: 1.5rem;
+    border-top: 4px solid var(--primary-color);
+}
+
+/* Form Styling */
+.contact-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--bg-white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* Sliding Cart Drawer & Overlay */
+.cart-drawer {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 350px;
+    height: 100%;
+    background-color: var(--bg-white);
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-drawer.open {
+    right: 0;
+}
+
+.cart-header {
+    padding: 1rem 1.5rem;
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-header h3 {
+    color: var(--bg-white);
+    margin: 0;
+}
+
+.cart-body {
+    padding: 1.5rem;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.75rem 0;
+}
+
+.cart-footer {
+    padding: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--bg-light);
+}
+
+.cart-total-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}
+
+/* Auth Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1002;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--bg-white);
+    padding: 2rem;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 0.5rem;
+    background: none;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+.tab-btn.active {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .hero-overlay h1 {
+        font-size: 2rem;
+    }
+
+    .cart-drawer {
+        width: 100%;
+        right: -100%;
+    }
+}

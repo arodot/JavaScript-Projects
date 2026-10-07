@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ARODOT Pizza & Grills</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="Pizza_CSS/Pizza.css" />
+    <script src="Pizza_JavaScript/Pizza.js" defer></script>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="nav-container">
+            <div class="brand">
+                <span class="brand-name">ARODOT</span>
+                <span class="brand-sub">PIZZA & GRILLS</span>
+            </div>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#menuBG">Menu & Builder</a>
+                <a href="#about">About Us</a>
+                <a href="#careers">Careers</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="btn btn-outline" onclick="openAuthModal('login')">Sign In</button>
+                <button class="btn btn-primary" onclick="openAuthModal('signup')">Create Account</button>
+                <button class="cart-icon-btn" onclick="toggleCart()">
+                    🛒 <span class="cart-badge" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Wrapper -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-overlay">
+                <h1>Hot, Fresh & Flame-Grilled Perfection</h1>
+                <p>Taste the ultimate combination of artisan pizzas and sizzled perfection at ARODOT Pizza & Grills.</p>
+                <a href="#menuBG" class="btn btn-lg btn-primary">Order Now</a>
+            </div>
+        </section>
+
+        <!-- Menu & Ordering Section -->
+        <section id="menuBG" class="section-container">
+            <h2>Our Menu & Pizza Builder</h2>
+            <p class="section-subtitle">Select from our signature kitchen items or build your custom pizza below!</p>
+
+            <!-- Signature Featured Items -->
+            <div class="grid menu-grid">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Margherita Supreme">
+                    <div class="card-body">
+                        <h3>Margherita Supreme</h3>
+                        <p>Fresh mozzarella, organic basil leaves, ripe tomatoes, and olive oil drizzle.</p>
+                        <div class="card-footer">
+                            <span class="price">$14.99</span>
+                            <button class="btn btn-secondary" onclick="addPresetToCart('Margherita Supreme', 14.99)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=600&q=80" alt="BBQ Chicken Grill">
+                    <div class="card-body">
+                        <h3>BBQ Chicken Grill</h3>
+                        <p>Flame-grilled chicken breast, red onions, tangy BBQ sauce, and smoked gouda.</p>
+                        <div class="card-footer">
+                            <span class="price">$18.99</span>
+                            <button class="btn btn-secondary" onclick="addPresetToCart('BBQ Chicken Grill', 18.99)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1544982503-9f984c14501a?auto=format&fit=crop&w=600&q=80" alt="Meat Lover's Feast">
+                    <div class="card-body">
+                        <h3>Meat Lover's Feast</h3>
+                        <p>Pepperoni, sausage, ground beef, Canadian bacon, and salami on thick crust.</p>
+                        <div class="card-footer">
+                            <span class="price">$19.99</span>
+                            <button class="btn btn-secondary" onclick="addPresetToCart('Meat Lover\'s Feast', 19.99)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80" alt="Grilled Steak Sizzle">
+                    <div class="card-body">
+                        <h3>Grilled Steak Sizzle</h3>
+                        <p>Prime beef grilled tender strips served with garlic butter, peppers, and house sauce.</p>
+                        <div class="card-footer">
+                            <span class="price">$22.99</span>
+                            <button class="btn btn-secondary" onclick="addPresetToCart('Grilled Steak Sizzle', 22.99)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Custom Pizza Builder Form -->
+            <div class="builder-wrapper">
+                <h3>Build Your Own Custom Pizza</h3>
+                <form id="frmMenu">
+                    <div class="builder-columns">
+                        <!-- Size Selection -->
+                        <div class="menu left">
+                            <h3>Size:</h3>
+                            <label><input class="size" type="radio" name="Size" value="Personal Pizza"> Personal Pizza ($6)</label><br>
+                            <label><input class="size" type="radio" name="Size" value="Small Pizza"> Small Pizza ($8)</label><br>
+                            <label><input class="size" type="radio" name="Size" value="Medium Pizza"> Medium Pizza ($10)</label><br>
+                            <label><input class="size" type="radio" name="Size" value="Large Pizza" checked> Large Pizza ($14)</label><br>
+                            <label><input class="size" type="radio" name="Size" value="Extra Large Pizza"> Extra Large Pizza ($16)</label><br>
+                        </div>
+
+                        <!-- Meat Toppings Selection -->
+                        <div class="menu right">
+                            <h3>Meats:</h3>
+                            <p class="small-text">(First meat topping is free, additional meats $1.00 each)</p>
+                            <label><input class="toppings" type="checkbox" name="Topping" value="Anchovy"> Anchovy</label><br>
+                            <label><input class="toppings" type="checkbox" name="Topping" value="Canadian Bacon"> Canadian Bacon</label><br>
+                            <label><input class="toppings" type="checkbox" name="Topping" value="Chicken"> Chicken</label><br>
+                            <label><input class="toppings" type="checkbox" name="Topping" value="Ground Beef"> Ground Beef</label><br>
+                            <label><input class="toppings" type="checkbox" name="Topping" value="Pepperoni"> Pepperoni</label><br>
+                            <label><input class="toppings" type="checkbox" name="Topping" value="Sausage"> Sausage</label><br>
+                            <label><input class="toppings" type="checkbox" name="Topping" value="Salami"> Salami</label><br>
+                        </div>
+                    </div>
+
+                    <div class="builder-actions">
+                        <input id="btnOrder" type="button" onclick="getReceipt()" value="Place Order / Add Custom Pizza">
+                    </div>
+
+                    <!-- Receipt Preview Output -->
+                    <div id="cart" class="receipt-box hidden">
+                        <h4>Order Summary</h4>
+                        <div id="showText"></div>
+                        <div id="totalPrice"></div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="section-container bg-light">
+            <div class="about-grid">
+                <div>
+                    <h2>About ARODOT Pizza & Grills</h2>
+                    <p>At ARODOT, we believe in passion, quality ingredients, and the warmth of a great meal shared together. Founded with a vision to bring authentic stone-oven pizzas and flame-grilled delights to your doorstep, every dish is crafted with care.</p>
+                    <p>Our dough is prepared fresh daily, rested for 24 hours to achieve perfect texture, and combined with farm-fresh produce and premium meats.</p>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80" alt="ARODOT Kitchen" class="rounded-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- Careers Section -->
+        <section id="careers" class="section-container">
+            <h2>Join the ARODOT Family</h2>
+            <p class="section-subtitle">We are always looking for passionate people to join our kitchen and customer service teams.</p>
+            
+            <div class="grid career-grid">
+                <div class="card career-card">
+                    <h3>Head Pizza Chef</h3>
+                    <p>Full-Time • Experience Required</p>
+                    <p>Lead kitchen operations, ensure food safety standards, and craft perfection on every order.</p>
+                    <button class="btn btn-outline" onclick="alert('Application modal coming soon!')">Apply Now</button>
+                </div>
+                <div class="card career-card">
+                    <h3>Grill Specialist</h3>
+                    <p>Full-Time • Competitive Pay</p>
+                    <p>Operate our flame grills and prepare meats and steaks to perfection.</p>
+                    <button class="btn btn-outline" onclick="alert('Application modal coming soon!')">Apply Now</button>
+                </div>
+                <div class="card career-card">
+                    <h3>Delivery Driver</h3>
+                    <p>Part-Time / Full-Time</p>
+                    <p>Bring piping hot meals safely and quickly to our local customers.</p>
+                    <button class="btn btn-outline" onclick="alert('Application modal coming soon!')">Apply Now</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section id="contact" class="section-container bg-light">
+            <h2>Contact Us</h2>
+            <p class="section-subtitle">Have questions or feedback? We'd love to hear from you!</p>
+            
+            <div class="contact-wrapper">
+                <form id="contactForm" onsubmit="handleContactSubmit(event)">
+                    <div class="form-group">
+                        <label for="contactName">Name</label>
+                        <input type="text" id="contactName" required placeholder="Your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">Email</label>
+                        <input type="email" id="contactEmail" required placeholder="you@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMessage">Message</label>
+                        <textarea id="contactMessage" rows="4" required placeholder="How can we help you?"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Shopping Cart Drawer Overlay -->
+    <div id="cartDrawer" class="cart-drawer">
+        <div class="cart-header">
+            <h3>Your Shopping Cart</h3>
+            <button class="close-btn" onclick="toggleCart()">&times;</button>
+        </div>
+        <div id="cartItems" class="cart-body">
+            <p class="empty-cart-msg">Your cart is currently empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>Grand Total:</span>
+                <span id="drawerTotal">$0.00</span>
+            </div>
+            <button class="btn btn-primary full-width" onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+    <div id="cartOverlay" class="overlay" onclick="toggleCart()"></div>
+
+    <!-- Account Modal (Login / Sign Up) -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeAuthModal()">&times;</span>
+            <div class="tabs">
+                <button id="tabLogin" class="tab-btn active" onclick="switchTab('login')">Sign In</button>
+                <button id="tabSignup" class="tab-btn" onclick="switchTab('signup')">Create Account</button>
+            </div>
+
+            <!-- Sign In Form -->
+            <form id="formLogin" onsubmit="handleAuthSubmit(event, 'login')">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" required placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn btn-primary full-width">Sign In</button>
+            </form>
+
+            <!-- Sign Up Form -->
+            <form id="formSignup" class="hidden" onsubmit="handleAuthSubmit(event, 'signup')">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email Address</label>
+                    <input type="email" id="signupEmail" required placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn btn-primary full-width">Create Account</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 ARODOT Pizza & Grills. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>
